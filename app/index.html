@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="myApp" ng-controller="AppCtrl">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a ng-href="#">Home</a></li>
+          <li ng-if="!isAuthenticated"><a class="js-login-btn" ng-click="openLoginDialog()" ng-href="#">Log in</a></li>
+          <li ng-if="isAuthenticated"><a class="js-current-user" ng-href="#">{{user.userName}}</a></li>
+          <li ng-if="isAuthenticated"><a ng-click="logout()" ng-href="#">Log out</a></li>
+        </ul>
+        <h3 class="text-muted">cucumberE2eDemo</h3>
+      </div>
+
+      <div ui-view=""></div>
+
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      </div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+        <script src="templates/templates.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/app-controller.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/login-controller.js"></script>
+        <script src="scripts/controllers/error-dialog-controller.js"></script>
+        <script src="scripts/services/services.js"></script>
+        <script src="scripts/services/authentication-service.js"></script>
+
+        <!-- endbuild -->
+
+        <!-- mocks modules-->
+
+        <!--(if target  mock || e2e)><!-->
+        <!-- Add HERE the mocks Modules used during Dev's development-->
+        <script src="dev-mocks/mock-utils.js"></script>
+        <script src="dev-mocks/modules/url-parser-service.js"></script>
+        <script src="dev-mocks/modules/authentication-service-mock.js"></script>
+        <!--<!(endif)-->
+
+        <!--(if target mock)><!-->
+        <script src="dev-mocks/mocks-module-plugin.js"></script>
+        <!-- Add HERE the main MockModule-->
+
+        <!--<!(endif)-->
+
+        <!-- end mocks modules-->
+</body>
+</html>
+

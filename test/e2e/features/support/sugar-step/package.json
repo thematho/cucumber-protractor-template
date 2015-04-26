@@ -1,0 +1,49 @@
+{
+  "name": "sugar-step",
+  "version": "0.1.0",
+  "description": "Syntactic Sugar for handling asynchronous step definitions in Cucumber-JS",
+  "main": "lib/sugar-step.js",
+  "scripts": {
+    "test": "jasmine-node --coffee . && cucumber.js",
+    "prepublish": "coffee --compile --output lib src"
+  },
+  "author": {
+    "name": "Lukas Degener",
+    "email": "l.degener@tarent.de"
+  },
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "promise": "^4.0.0",
+    "jasmine-node": "*",
+    "cucumber": "^0.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ldegen/sugar-step.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ldegen/sugar-step/issues"
+  },
+  "homepage": "https://github.com/ldegen/sugar-step",
+  "_id": "sugar-step@0.1.0",
+  "dist": {
+    "shasum": "c0afddcbf6e2806a2f2d12a7fb684829324331bb",
+    "tarball": "http://registry.npmjs.org/sugar-step/-/sugar-step-0.1.0.tgz"
+  },
+  "_from": "sugar-step@",
+  "_npmVersion": "1.4.6",
+  "_npmUser": {
+    "name": "l.degener",
+    "email": "l.degener@tarent.de"
+  },
+  "maintainers": [
+    {
+      "name": "l.degener",
+      "email": "l.degener@tarent.de"
+    }
+  ],
+  "directories": {},
+  "_shasum": "c0afddcbf6e2806a2f2d12a7fb684829324331bb",
+  "_resolved": "https://registry.npmjs.org/sugar-step/-/sugar-step-0.1.0.tgz",
+  "readme": "ERROR: No README data found!"
+}
