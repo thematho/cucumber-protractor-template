@@ -360,6 +360,11 @@ module.exports = function(grunt) {
     },
 
     targethtml: {
+      dist: {
+        files: {
+          '.tmp/index.html': '<%= yeoman.app %>/index.html'
+        }
+      },
       dev: {
         files: {
           '.tmp/index.html': '<%= yeoman.app %>/index.html'
@@ -512,7 +517,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
-      'targethtml:' + target === 'mock' ? 'mock' : 'dev',
+      'targethtml:' + ((target === 'mock') ? 'mock' : 'dev'),
       'wiredep',
       'concurrent:server',
       'autoprefixer',
