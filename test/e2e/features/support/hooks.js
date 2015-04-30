@@ -15,6 +15,13 @@ var hooks = function() {
     // TODO: make screen size configurables per task
     defaultScreenWidth = 1024,
     defaultScreenHeight = 768,
+    // Resolves all the mocks files
+    getE2EMockModules = function() {
+      var mockDir = path.resolve(__dirname, '../mocks');
+      return fs.readdirSync(mockDir).map(function(mockFile) {
+        return require(path.resolve(mockDir, mockFile));
+      });
+    },
     // Removes sessionStorage & localStorage if is enabled
     cleanStorage = function() {
       return browser.executeScript(function() {
@@ -79,12 +86,7 @@ var hooks = function() {
     // done();
   });
 
-  function getE2EMockModules() {
-    var mockDir = path.resolve(__dirname, '../mocks');
-    return fs.readdirSync(mockDir).map(function(mockFile) {
-      return require(path.resolve(mockDir, mockFile));
-    });
-  }
+
 
   // First Load mocks modules for E2E test
   getE2EMockModules()
