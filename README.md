@@ -10,6 +10,7 @@
   - [Dev Mocks (default/common mocks)](#)
   - [E2E Test Mocks for each Feature/Scenario](#)
   - [Easy Asynchornous/Synchornous Steps](#)
+  - [License](#)
 
 
 
@@ -128,3 +129,7 @@ And /$there is also a non-trivial, asynchronous stuff^/, ->
 No matter in which type of step is, it's more like it to abstract the same logic for the same semantic key.
 
 You can see the Why ? & How? in the official repository of [`sugar-step`](https://github.com/ldegen/sugar-step)
+
+## License
+
+ Dual license, both MIT and BSD
