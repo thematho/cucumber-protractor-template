@@ -441,6 +441,7 @@ module.exports = function(grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true,
         preprocessors: {
+          'app/scripts/**/!(*.spec).js': ['coverage'],
           'app/scripts/**/*.tpl.html': ['ng-html2js']
         }
       }

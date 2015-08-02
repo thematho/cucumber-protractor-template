@@ -14,7 +14,7 @@ module.exports = function(config) {
     basePath: '../',
 
     // testing framework to use (jasmine/mocha/qunit/...)
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai', 'sinon'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -23,10 +23,18 @@ module.exports = function(config) {
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-touch/angular-touch.js',
+      'app/scripts/app.js',
+      {
+        pattern: 'app/**/*.js',
+        included: true,
+        watched: false,
+        served: true
+      },
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js',
-      'app/scripts/mocks/mocks-module-plugin.js',
+      'app/dev-mocks/mocks-module-plugin.js',
+      'app/dev-mocks/**/*.js',
+      'test/spec/**/*.js'
     ],
 
     // list of files / patterns to exclude
@@ -50,7 +58,13 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-chrome-launcher',
+      'karma-mocha',
+      'karma-chai',
+      'karma-sinon',
+      'karma-coverage',
+      'karma-junit-reporter',
+      'karma-ng-html2js-preprocessor'
     ],
 
     // Continuous Integration mode
@@ -62,7 +76,20 @@ module.exports = function(config) {
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO,
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/scripts/**/*.tpl.html': ['ng-html2js']
+    },
+    junitReporter: {
+      outputFile: 'build/junit/test-results.xml',
+      suite: ''
+    },
 
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/',
+    }
     // Uncomment the following lines if you are using grunt's server to run the tests
     // proxies: {
     //   '/': 'http://localhost:9000/'
